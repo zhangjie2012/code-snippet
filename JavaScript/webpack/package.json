@@ -1,0 +1,16 @@
+{
+    "name": "project-name",
+    "version": "1.0.0",
+    "description": "",
+    "main": "entry.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "zhangjie <me@zhangjiee.com>",
+    "license": "ISC",
+    "devDependencies": {
+        "css-loader": "0.28.4",
+        "style-loader": "0.18.2",
+        "webpack": "^3.0.0"
+    }
+}

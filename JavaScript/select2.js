@@ -20,3 +20,27 @@ function matchWords(term, text) {
 $().select2({
   matcher: base.matchWords
 });
+
+// -----------------------------------------------------------------------------
+
+// Select2 插件封装(全异步请求)
+function asyncSelect2(div_id, url, placeholder) {
+  return $(div_id).select2({
+    placeholder: placeholder,
+    ajax: {
+      type: 'POST',
+      url: url,
+      delay: 200,
+      data: function (params) {
+        return {
+          q: params.term
+        };
+      },
+      processResults: function (data) {
+        return {
+          results: data.items
+        };
+      }
+    }
+  });
+}
