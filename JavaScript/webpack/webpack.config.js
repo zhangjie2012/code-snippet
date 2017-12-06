@@ -1,6 +1,6 @@
 /*
-* 开发环境: webpack
-* 线上环境: PROD_ENV=1 webpack
+ * 开发环境: webpack
+ * 线上环境: PROD_ENV=1 webpack
  */
 
 var webpack = require('webpack');
