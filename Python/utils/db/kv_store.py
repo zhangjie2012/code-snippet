@@ -3,13 +3,12 @@ import json
 import redis
 
 
-class QRedis:
-    """QRedis
-    redis 即拥有 memcached 的高效, 又提供了丰富的数据结构(string,
-    set, list, hash 等), 目前只提供了 string 的接口, 针对其它数据结构的接口在需要时
-    再提供。
+class KVStore:
+    """KVStore Redis 实现版本
+    redis 即拥有 memcached 的高效, 又提供了丰富的数据结构(string, set, list,
+    hash 等), 目前只提供了 string 的接口, 针对其它数据结构的接口在需要时再提供
 
-    QRedis 对redis-py 进行了封装，使用时应注意:
+    KVStore 对 redis-py 进行了封装，使用时应注意:
     1. 所有的 key 的数据类型均为 string
     2. 已知 value 的类型, 选择合适的接口. 比如如果你想存储 int, 应使用 set_int,
        QRedis 所有接口都不处理类型转换带来的异常
@@ -19,9 +18,9 @@ class QRedis:
     def __init__(self, host, port=6379, password=None):
         self.rds = redis.StrictRedis(host=host, port=port, password=password)
 
-    # --------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     # `KEY` 操作
-    # --------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     def delete(self, *name):
         """删除一个或者多个 key"""
         return self.rds.delete(*name)
